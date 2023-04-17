@@ -1,0 +1,123 @@
+.body-full {
+	// width: 100vw;
+	font-family: "proxima";
+
+	.register-body {
+		height: 100vh;
+
+		.font-weight-bold {
+			font-weight: bold !important;
+		}
+
+		.images-logo {
+			margin-bottom: 20px;
+
+			img {
+				width: 8em;
+			}
+		}
+
+		label {
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+
+		.divider {
+			background-color: transparent;
+			color: transparent;
+			display: inline;
+		}
+
+		.blue-text {
+			color: #66a5dd;
+			cursor: pointer;
+		}
+
+		.half-footer {
+			position: absolute;
+			bottom: 10px;
+		}
+
+		.info-verify {
+			height: 80%;
+			position: relative;
+			// background-color: aquamarine;
+
+			.verify-body {
+				min-height: 100px;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+			}
+
+			.dahsed-line {
+				position: absolute;
+				margin: auto;
+				right: 7%;
+				top: 7%;
+				width: 50%;
+				height: 50%;
+				border-color: #25396b;
+				border-style: dashed;
+				border-width: 0px 0px 4px 4px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.half-footer {
+		position: static !important;
+		bottom: 10px;
+		color: white !important;
+		text-align: center;
+		font-size: 0.8em;
+	}
+
+	.dahsed-line {
+		position: relative !important;
+		border-width: 0px 0px 0px 4px !important;
+		height: 40px !important;
+		left: 0;
+		right: 0;
+		width: 3px !important;
+	}
+
+	.section {
+		background-color: white;
+		padding: 10px;
+		border-radius: 10px 10px;
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+
+	.info-verify {
+		height: 90% !important;
+	}
+
+	.images-logo {
+		width: 100vw;
+		height: 80px;
+		background-color: white;
+		position: fixed;
+		margin: 0 auto;
+		padding-left: 20px;
+		padding-right: 20px;
+		left: 0;
+		right: 0;
+		z-index: 2;
+	}
+
+	.images-divider {
+		height: 100px;
+	}
+}
+
+:host::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+	background-color: red !important;
+	background: red !important;
+	border: red !important;
+	outline-style: none !important;
+}

@@ -1,0 +1,338 @@
+<div class="container-fluid body-full">
+	<div class="row">
+		<div
+			class="col-lg-4 p-0 slideshow register-body"
+			*ngIf="innerWidth >= 992"
+		>
+			<div class="slideshow-slide">
+				<div
+					class="d-flex flex-column justify-content-center slide-body"
+				>
+					<div class="p-2 mb-3">
+						<h3>A few clicks away from being a part of Axdif</h3>
+					</div>
+					<div class="p-2 mb-3">
+						<img
+							[src]="
+								'assets/images/' + slideRaw[slideIndex]['image']
+							"
+							width="210"
+						/>
+					</div>
+					<div class="p-2 mb-3">
+						<h5>{{ slideRaw[slideIndex]["text1"] }}</h5>
+						<p>
+							{{ slideRaw[slideIndex]["text2"] }}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="slideshow-nav">
+				<div class="nav-body d-flex justify-content-between">
+					<ng-container *ngFor="let data of slideRaw; let i = index">
+						<div
+							(click)="changeSlide(i)"
+							class="nav-circle"
+							[ngClass]="{ 'nav-active': data['active'] }"
+						></div>
+					</ng-container>
+				</div>
+			</div>
+		</div>
+		<div
+			class="col-lg-8 register-body position-relative"
+			[ngClass]="{ 'p-5': innerWidth >= 992 }"
+		>
+			<div class="images-logo p-3">
+				<img src="assets/images/axdif-logo.jpeg" />
+			</div>
+			<div class="images-divider"></div>
+
+			<div class="p-2 text-center text-white" *ngIf="innerWidth < 992">
+				<h3 class="font-weight-bold">
+					A few clicks away from being a part of Axdif
+				</h3>
+			</div>
+
+			<div class="section p-3" id="section1" *ngIf="!onSubmit">
+				<h4 class="font-weight-bold proxima-bold mb-3">
+					Manage all your employee efficiently
+				</h4>
+				<p class="font-weight-bold mb-4">
+					Let`s get you all set up so you can verify your personal
+					account and begin setting up your profile
+				</p>
+
+				<form>
+					<div class="row">
+						<div class="col-lg-6">
+							<label class="font-weight-bold" for=""
+								>Company Name</label
+							><br />
+							<input
+								class="w-100"
+								name="companyName"
+								type="text"
+								pInputText
+								[style]="inputTextStyle"
+								placeholder="e.g John"
+							/>
+						</div>
+						<div class="col-lg-6">
+							<label class="font-weight-bold" for=""
+								>Fullname</label
+							><br />
+							<input
+								class="w-100"
+								name="fullName"
+								type="text"
+								pInputText
+								[style]="inputTextStyle"
+								placeholder="e.g Doe"
+							/>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-6">
+							<label class="font-weight-bold" for="">Email</label
+							><br />
+							<input
+								class="w-100"
+								name="email"
+								type="text"
+								pInputText
+								[style]="inputTextStyle"
+								placeholder="e.g jhon.doe@mail.com"
+							/>
+						</div>
+						<div class="col-lg-6">
+							<label class="font-weight-bold" for=""
+								>Phone Number (Optional)</label
+							><br />
+							<div class="row">
+								<div class="col-4">
+									<input
+										class="w-100"
+										name="firstNumber"
+										type="text"
+										pInputText
+										[style]="inputTextStyle"
+										placeholder="Country Code"
+									/>
+								</div>
+								<div
+									class="col-8"
+									style="padding-left: 5px !important"
+								>
+									<input
+										name="secondNumber"
+										type="text"
+										pInputText
+										[style]="inputTextStyle"
+										placeholder="e.g 821 2345 6789"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-6">
+							<label class="font-weight-bold" for=""
+								>Password</label
+							><br />
+							<p-password
+								id="password1"
+								type="password"
+								class="w-full"
+								[feedback]="false"
+								placeholder="Insert Password"
+								[style]="inputOutlineStyle"
+								[inputStyle]="inputTextStyle"
+								[toggleMask]="true"
+							></p-password>
+						</div>
+						<div class="col-lg-6">
+							<label
+								class="font-weight-bold"
+								for="confirmPassword"
+								>Confirm Password</label
+							>
+							<br />
+							<p-password
+								id="password1"
+								type="password"
+								class="w-full"
+								[feedback]="false"
+								placeholder="Insert Password"
+								[style]="inputOutlineStyle"
+								[inputStyle]="inputTextStyle"
+								[toggleMask]="true"
+							>
+							</p-password>
+						</div>
+					</div>
+
+					<div class="row mt-4">
+						<div
+							class="col"
+							style="max-width: 40px !important; min-width: 40px!"
+						>
+							<p-checkbox
+								name="confirmation1"
+								value="confirm1"
+								inputId="confirm1"
+							></p-checkbox>
+						</div>
+						<div class="col">
+							<label class="m-0" for="confirmation1"
+								>Yes i want to receive Axdif's Newsletter</label
+							>
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div
+							class="col"
+							style="max-width: 40px !important; min-width: 40px!"
+						>
+							<p-checkbox
+								name="confirmation2"
+								value="confirm2"
+								inputId="confirm2"
+							></p-checkbox>
+						</div>
+						<div class="col">
+							<label class="m-0" for="confirmation2"
+								>I have read and accept the
+								<span class="blue-text"
+									>Terms & Conditions</span
+								>
+								and
+								<span class="blue-text"
+									>Privacy Policy</span
+								></label
+							>
+						</div>
+
+						<p-button
+							label="Submit"
+							styleClass="p-button-danger mt-4 pl-4 pr-4 pt-2 pb-2"
+							(click)="register()"
+						></p-button>
+					</div>
+				</form>
+			</div>
+
+			<div
+				class="section col-12 info-verify m-0"
+				id="section2"
+				*ngIf="onSubmit"
+			>
+				<div class="verify-body p-2 col-lg-10">
+					<div
+						id="information1"
+						[ngClass]="{
+							'd-flex justify-content-center align-items-center':
+								innerWidth >= 992,
+							'text-center': innerWidth < 992
+						}"
+						class="col-lg-7 mb-2 text-center"
+					>
+						<div>
+							<img
+								src="assets/images/verify1.svg"
+								alt=""
+								width="100"
+							/>
+						</div>
+						<div class="divider" style="width: 20px"></div>
+						<div class="pl-2">
+							<h5 class="proxima-bold">Verify your account</h5>
+							<h6 class="m-0 font-weight-bold text-grey">
+								A verification link has been sent to your email
+								account
+							</h6>
+						</div>
+					</div>
+					<div class="row" id="information2">
+						<div class="col-lg-2 position-relative pt-2 pb-2">
+							<div class="dahsed-line"></div>
+						</div>
+						<div
+							[ngClass]="{
+								'd-flex align-items-center': innerWidth >= 992,
+								'text-center': innerWidth < 992
+							}"
+							class="col-lg-7 p-0"
+						>
+							<div>
+								<img
+									src="assets/images/verify2.svg"
+									alt=""
+									width="100"
+									class="mt-2 mb-2"
+								/>
+							</div>
+							<div class="divider" style="width: 10px"></div>
+							<div class="pl-2">
+								<h5 class="proxima-bold">
+									Login to your account
+								</h5>
+								<h6 class="m-0 font-weight-bold text-grey">
+									Login to your Axdif account
+								</h6>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-2" id="information3">
+						<div class="col-lg-2 p-0"></div>
+						<div class="col-lg-2 position-relative pt-2 pb-2">
+							<div class="dahsed-line"></div>
+						</div>
+						<div
+							id="information3"
+							class="col-lg-7"
+							[ngClass]="{
+								'd-flex justify-content-center align-items-center':
+									innerWidth >= 992,
+								'text-center': innerWidth < 992
+							}"
+						>
+							<div>
+								<img
+									src="assets/images/verify3.svg"
+									alt=""
+									width="100"
+									class="mt-2 mb-2"
+								/>
+							</div>
+							<div class="divider" style="width: 20px"></div>
+							<div class="pl-2">
+								<h5 class="proxima-bold">Setup your data</h5>
+								<h6 class="m-0 font-weight-bold text-grey">
+									Input your employee data and get the ease of
+									managing employee
+								</h6>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 d-flex justify-content-center mt-1">
+						<p-button
+							label="Login to Axdif"
+							styleClass="p-button-danger mt-4 pl-4 pr-4 pt-2 pb-2"
+						></p-button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-8 half-footer pb-2">
+				<p class="mt-5 mb-3">
+					&copy; Copyright 2023. All Right Reserved.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
