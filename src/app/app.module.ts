@@ -14,9 +14,16 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselModule } from 'primeng/carousel';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
-	declarations: [AppComponent, RegisterComponent],
+	declarations: [
+		AppComponent,
+		RegisterComponent,
+		LoginComponent,
+		DashboardComponent,
+	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,

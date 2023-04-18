@@ -1,7 +1,7 @@
 <div class="container-fluid body-full">
 	<div class="row">
 		<div
-			class="col-lg-4 p-0 slideshow register-body"
+			class="col-lg-4 p-0 slideshow register-body set-bg"
 			*ngIf="innerWidth >= 992"
 		>
 			<div class="slideshow-slide">
@@ -43,12 +43,16 @@
 			class="col-lg-8 register-body position-relative"
 			[ngClass]="{ 'p-5': innerWidth >= 992 }"
 		>
-			<div class="images-logo p-3">
+			<div class="images-logo pt-3">
 				<img src="assets/images/axdif-logo.jpeg" />
 			</div>
 			<div class="images-divider"></div>
 
-			<div class="p-2 text-center text-white" *ngIf="innerWidth < 992">
+			<div
+				id="title-text"
+				class="p-2 text-center text-white"
+				*ngIf="innerWidth < 992"
+			>
 				<h3 class="font-weight-bold">
 					A few clicks away from being a part of Axdif
 				</h3>
@@ -216,11 +220,13 @@
 							>
 						</div>
 
-						<p-button
-							label="Submit"
-							styleClass="p-button-danger mt-4 pl-4 pr-4 pt-2 pb-2"
-							(click)="register()"
-						></p-button>
+						<div class="btn-login">
+							<p-button
+								label="Submit"
+								styleClass="p-button-danger mt-4 pl-4 pr-4 pt-2 pb-2"
+								(click)="register()"
+							></p-button>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -229,6 +235,7 @@
 				class="section col-12 info-verify m-0"
 				id="section2"
 				*ngIf="onSubmit"
+				[ngClass]="{ 'pt-5': innerWidth >= 992 }"
 			>
 				<div class="verify-body p-2 col-lg-10">
 					<div
@@ -321,6 +328,7 @@
 
 					<div class="col-12 d-flex justify-content-center mt-1">
 						<p-button
+							routerLink="/login"
 							label="Login to Axdif"
 							styleClass="p-button-danger mt-4 pl-4 pr-4 pt-2 pb-2"
 						></p-button>

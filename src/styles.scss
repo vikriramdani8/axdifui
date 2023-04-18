@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
 @font-face {
 	font-family: "proxima";
 	src: url("./assets/fonts/proxima-medium.otf");
@@ -14,6 +16,10 @@
 	src: url("./assets/fonts/aristotelica.ttf");
 }
 
+.proxima {
+	font-family: "proxima" !important;
+}
+
 .proxima-bold {
 	font-family: "proxima-bold" !important;
 }
@@ -26,8 +32,29 @@
 	color: #8994b3 !important;
 }
 
-@media only screen and (max-width: 992px) {
-	body {
-		background-color: #0796e5 !important;
-	}
+.text-blue {
+	color: #66a5dd;
+}
+
+.font-weight-bold {
+	font-weight: bold !important;
+}
+
+.font-weight-medium {
+	font-weight: 500 !important;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+label {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.set-bg {
+	background-image: url("./assets/images/bg.svg");
+	background-size: cover;
+	background-color: rgba(7, 150, 229, 1);
 }

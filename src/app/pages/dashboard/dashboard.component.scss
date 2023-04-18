@@ -1,0 +1,93 @@
+.menu-bar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	border-bottom: 1px solid #a6afc8;
+	font-family: "proxima";
+
+	.images-logo {
+		max-width: 70px;
+		border-right: 1px solid #a6afc8;
+		text-align: center;
+
+		img {
+			margin: auto;
+			width: 50px;
+		}
+	}
+
+	.profile {
+		min-width: 60px;
+		max-width: 80px;
+
+		img {
+			width: 40px;
+			margin: auto;
+			right: 0;
+			top: 0;
+		}
+	}
+
+	.header-nav {
+		.nav-items {
+			display: inline-block;
+			margin-right: 5px;
+			margin-left: 5px;
+			padding: 10px;
+			min-width: 70px;
+			text-align: center;
+			color: #888fb0;
+			font-weight: bold;
+			border-radius: 5px 5px;
+			cursor: pointer;
+		}
+
+		.nav-items:hover {
+			background-color: #e1f4fe;
+			color: #0796e5;
+		}
+
+		.nav-item-active {
+			color: #000037;
+			background-color: #f3f5fe;
+			cursor: auto;
+		}
+
+		.nav-item-active:hover {
+			color: #000037;
+			background-color: #f3f5fe;
+			cursor: auto;
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.header-nav-shadow {
+		box-shadow: 0px 1px 6px 1px rgba(136, 143, 176, 0.1);
+	}
+
+	.header-nav {
+		position: absolute;
+		background-color: white;
+		width: 60%;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		.nav-items {
+			top: 0;
+			display: block !important;
+		}
+
+		.nav-items:hover {
+			background-color: transparent;
+			color: #888fb0;
+		}
+	}
+
+	.nav-item-active {
+		background-color: white !important;
+	}
+}

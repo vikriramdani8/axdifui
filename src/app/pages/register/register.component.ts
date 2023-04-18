@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+declare var $: any;
 
 @Component({
 	selector: 'app-register',
@@ -18,17 +19,30 @@ export class RegisterComponent implements OnInit {
 	innerWidth = 0;
 	slideRaw: any = [];
 	slideIndex = 0;
-	onSubmit = false;
+	onSubmit = true;
 
 	@HostListener('window:resize', ['$event'])
 	onResize(event: any) {
 		this.innerWidth = window.innerWidth;
+		if (this.innerWidth < 992) {
+			$('body').addClass('set-bg');
+		} else {
+			$('body').removeClass('set-bg');
+		}
+
+		setTimeout(() => {
+			$('.info-verify').css(
+				'height',
+				$('.verify-body').innerHeight() + 20 + 'px'
+			);
+		}, 100);
 	}
 
 	constructor() {}
 
 	ngOnInit(): void {
 		this.innerWidth = window.innerWidth;
+		this.onResize(null);
 		this.slideRaw = [
 			{
 				image: 'register1.svg',
@@ -59,5 +73,6 @@ export class RegisterComponent implements OnInit {
 
 	register() {
 		this.onSubmit = true;
+		this.onResize(null);
 	}
 }
