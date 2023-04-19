@@ -14,8 +14,13 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselModule } from 'primeng/carousel';
+import { CalendarModule } from 'primeng/calendar';
+
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { EmployeeComponent } from './pages/employee/employee.component';
 
 @NgModule({
 	declarations: [
@@ -23,6 +28,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 		RegisterComponent,
 		LoginComponent,
 		DashboardComponent,
+		HomeComponent,
+		NavbarComponent,
+		EmployeeComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -36,6 +44,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 		InputTextModule,
 		CheckboxModule,
 		CarouselModule,
+		CalendarModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

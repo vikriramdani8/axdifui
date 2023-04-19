@@ -1,32 +1,172 @@
-<div class="container-fluid p-0">
-	<div class="menu-bar p-3">
-		<div class="row position-relative align-items-center">
-			<div class="col images-logo">
-				<img src="assets/images/x-logo.svg" alt="" />
-			</div>
-			<div class="col">
-				<div class="header-nav">
-					<ng-container *ngFor="let data of listMenu; let i = index">
-						<div
-							class="nav-items"
-							(click)="setMenu(i)"
-							*ngIf="data['active'] || navShow || !responsive"
-							[ngClass]="{
-								'nav-item-active': data['active'],
-							}"
+<div
+	class="containter proxima"
+	[ngClass]="{ 'p-3': innerWidth <= 992, 'p-4': innerWidth > 992 }"
+>
+	<div class="col-12 row">
+		<div id="section1" class="col-lg-8 bg-success p-2">
+			<div
+				class="col-12 overview-description overview-summary p-3 pt-2"
+				[ngClass]="{ 'p-4': innerWidth >= 992 }"
+			>
+				<div class="d-flex justify-content-between align-items-center">
+					<h5 class="font-weight-bold m-0">Summary</h5>
+					<div
+						class="d-flex align-items-center periode"
+						[ngClass]="{
+							'justify-content-between': innerWidth > 580,
+							'flex-row-reverse': innerWidth <= 580
+						}"
+					>
+						<span
+							class="font-weight-medium"
+							*ngIf="innerWidth > 580"
+							>Periode</span
 						>
-							<span>{{ data["menuName"] }}</span>
-							<span
-								*ngIf="innerWidth <= 850 && !navShow"
-								class="pi pi-caret-down"
-								style="font-size: 12px; margin-left: 3px"
-							></span>
+						<p-calendar
+							view="month"
+							[dateFormat]="innerWidth > 580 ? 'MM yy' : 'yy'"
+							[readonlyInput]="true"
+							[showIcon]="true"
+							[style]="inputOutlineStyle"
+							[inputStyle]="inputTextStyle"
+						></p-calendar>
+					</div>
+				</div>
+				<hr class="line m-0" />
+				<div class="body-detail row p-1">
+					<div
+						*ngFor="let data of summaryDetail"
+						class="items col-4 p-2"
+						[ngClass]="{ 'col-6': innerWidth < 992 }"
+					>
+						<div class="detail-item">
+							<p>{{ data["fieldName"] }}</p>
+							<b>{{ data["value"] }}</b>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="col-12 p-3 overview-description overview-task"
+				[ngClass]="{ 'p-4': innerWidth >= 992 }"
+			>
+				<div
+					class="d-flex justify-content-between align-items-center mb-3"
+				>
+					<h5 class="font-weight-bold m-0">Task Due soon</h5>
+					<span class="see-all-text"
+						>See All <b class="pi pi-caret-right"></b
+					></span>
+				</div>
+				<hr class="line m-0" />
+				<div class="col-12 body-detail mt-3">
+					<ng-container *ngFor="let data of taskList">
+						<div
+							class="detail-item w-100 p-2 row align-items-center mb-2 m-0"
+						>
+							<div class="col-lg-5 task-top">
+								<p class="text1 m-0">{{ data["nameField"] }}</p>
+								<b class="text2">{{ data["descField"] }}</b>
+							</div>
+							<div
+								class="task-bottom col-lg-7 d-flex align-items-center"
+								[ngClass]="{
+									'justify-content-end': innerWidth >= 992
+								}"
+							>
+								<div
+									class="task1 d-flex justify-content-between align-items-center"
+								>
+									<div
+										class="comment d-flex justify-content-center align-items-center"
+									>
+										<i class="pi pi-paperclip"></i>
+										<div class="divider"></div>
+										<p class="">44</p>
+									</div>
+									<div
+										class="comment d-flex justify-content-center align-items-center"
+									>
+										<i class="pi pi-comment"></i>
+										<div class="divider"></div>
+										<p class="">12</p>
+									</div>
+								</div>
+								<div class="task2 d-flex align-items-center">
+									<span class="level"> Medium </span>
+									<div
+										class="date pl-3 d-flex align-items-center"
+									>
+										<span class="pi pi-calendar"></span>
+										<span class="date-format"
+											>06 Aug 2021</span
+										>
+									</div>
+								</div>
+							</div>
 						</div>
 					</ng-container>
 				</div>
 			</div>
-			<div class="col profile position-relative text-center">
-				<img src="assets/images/pp1.png" alt="" />
+		</div>
+		<div id="section2 p-2" class="col-lg-4 bg-danger p-2">
+			<div class="col-12 profile">
+				<div class="w-100 profile-banner">
+					<div class="profile-ava">
+						<img src="assets/images/pp2.png" alt="" />
+					</div>
+					<div class="profile-bg"></div>
+					<div class="profile-bg2"></div>
+					<div class="profile-desc">
+						<b>John Doe</b>
+						<div
+							id="office"
+							class="w-100 d-flex justify-content-center align-items-center"
+						>
+							<img src="assets/images/building.svg" width="12" />
+							<span class="divider"></span>
+							<p class="m-0">Google Indonesia</p>
+						</div>
+						<hr />
+					</div>
+				</div>
+
+				<div class="w-100 profile-detail">
+					<ng-container *ngFor="let data of profileDetail">
+						<div
+							class="detail-item d-flex justify-content-between align-items-center"
+						>
+							<span class="text-grey">{{
+								data["fieldName"]
+							}}</span>
+							<span class="text-dark">{{ data["value"] }}</span>
+						</div>
+					</ng-container>
+				</div>
+			</div>
+
+			<div class="col-12 attendance-outline">
+				<div class="w-100 attendance p-3">
+					<div class="w-100">
+						<h5 class="font-weight-bold m-0">Today's Attendance</h5>
+					</div>
+					<hr class="line" />
+					<div class="body-detail row mt-4">
+						<div class="clock col-6">
+							<div class="detail-item w-100">
+								<p>Clock In</p>
+								<b>07:07</b>
+							</div>
+						</div>
+						<div class="clock col-6">
+							<div class="detail-item w-100">
+								<p>Clock Out</p>
+								<b>18:00</b>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

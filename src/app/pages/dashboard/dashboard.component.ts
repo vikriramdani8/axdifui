@@ -7,73 +7,99 @@ declare var $: any;
 	styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-	innerWidth = 0;
-	indexActive = 0;
-	navShow = false;
-	responsive = false;
+	inputOutlineStyle = {
+		'max-width': '160px',
+	};
 
-	listMenu = [
+	inputTextStyle = {
+		width: '100%',
+		'padding-left': '10px',
+		'padding-top': '5px',
+		'padding-bottom': '5px',
+	};
+
+	innerWidth = 0;
+
+	summaryDetail = [
 		{
-			menuName: 'Overview',
-			routerLink: '',
-			active: false,
+			fieldName: 'Working Day(s)',
+			value: '2 Hari',
 		},
 		{
-			menuName: 'Employee',
-			routerLink: '',
-			active: false,
+			fieldName: 'Working Hour(s)',
+			value: '13 hr 14 min',
 		},
 		{
-			menuName: 'Submission',
-			routerLink: '',
-			active: false,
+			fieldName: 'Exceptional Attendance',
+			value: '0 Hari',
 		},
 		{
-			menuName: 'Task',
-			routerLink: '',
-			active: false,
+			fieldName: 'Leave Taken',
+			value: '0 Hari',
 		},
 		{
-			menuName: 'Chat',
-			routerLink: '',
-			active: false,
+			fieldName: 'Overtime',
+			value: '00 hr 00 min',
 		},
 		{
-			menuName: 'Payroll',
-			routerLink: '',
-			active: false,
+			fieldName: 'Claim',
+			value: 'IDR 0',
+		},
+	];
+
+	taskList = [
+		{
+			nameField: 'UI/UX Designer',
+			descField: '[Wms][Web][Task] Create goal design',
+		},
+		{
+			nameField: 'UI/UX Designer',
+			descField: '[Wms][Chat] Improve Design',
+		},
+		{
+			nameField: 'UI/UX Designer',
+			descField: '[Wms][Task] Improve Dashboard',
+		},
+	];
+
+	profileDetail = [
+		{
+			fieldName: 'Employee ID',
+			value: 'PT - GOO34',
+		},
+		{
+			fieldName: 'Position',
+			value: 'Senior Front-End Developer',
+		},
+		{
+			fieldName: 'Join Date',
+			value: '23 Feb 2018',
+		},
+		{
+			fieldName: 'Year of Service',
+			value: '4 Years 5 Months 2 Days',
 		},
 	];
 
 	@HostListener('window:resize', ['$event'])
 	onResize(event: any) {
 		this.innerWidth = window.innerWidth;
-		$('.header-nav').removeClass('header-nav-shadow');
-		if (this.innerWidth < 850) {
-			this.navShow = false;
-			this.responsive = true;
+		if (this.innerWidth <= 580) {
+			this.inputOutlineStyle['max-width'] = '90px';
 		} else {
-			this.responsive = false;
+			this.inputOutlineStyle['max-width'] = '160px';
+		}
+
+		if (this.innerWidth <= 850) {
+			$('.items').removeClass('col-4');
+			$('.items').addClass('col-6');
+		} else {
+			$('.items').removeClass('col-6');
+			$('.items').addClass('col-4');
 		}
 	}
 
 	ngOnInit(): void {
 		this.onResize(0);
-		this.listMenu[this.indexActive]['active'] = true;
-	}
-
-	setMenu(i: any) {
-		this.listMenu[this.indexActive]['active'] = false;
-		this.listMenu[i]['active'] = true;
-
-		if (i == this.indexActive && !this.navShow) {
-			this.navShow = true;
-			$('.header-nav').addClass('header-nav-shadow');
-		} else {
-			this.navShow = false;
-			$('.header-nav').removeClass('header-nav-shadow');
-		}
-
-		this.indexActive = i;
 	}
 }
