@@ -56,7 +56,7 @@ label {
 .set-bg {
 	background-image: url("./assets/images/bg.svg");
 	background-size: cover;
-	background-color: rgba(7, 150, 229, 1);
+	background-color: rgba(7, 150, 229, 1) !important;
 }
 
 .hr-grey {

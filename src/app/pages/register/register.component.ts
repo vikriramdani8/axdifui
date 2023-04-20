@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
 		padding: '8px',
 	};
 
+	innerHeight = 0;
 	innerWidth = 0;
 	slideRaw: any = [];
 	slideIndex = 0;
@@ -25,6 +26,8 @@ export class RegisterComponent implements OnInit {
 	onResize(event: any) {
 		setTimeout(() => {
 			this.innerWidth = window.innerWidth;
+			this.innerHeight = window.innerHeight;
+
 			if (this.innerWidth < 992) {
 				$('body').addClass('set-bg');
 			} else {
@@ -41,6 +44,7 @@ export class RegisterComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {
+		this.innerHeight = window.innerHeight;
 		this.innerWidth = window.innerWidth;
 		this.slideRaw = [
 			{

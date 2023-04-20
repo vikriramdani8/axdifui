@@ -169,8 +169,8 @@ export class NavbarComponent implements OnInit {
 	logout() {
 		localStorage.clear();
 		this.router.navigate(['/']);
-		setTimeout(() => {
-			window.location.reload();
-		}, 200);
+		// setTimeout(() => {
+		// 	window.location.reload();
+		// }, 200);
 	}
 }

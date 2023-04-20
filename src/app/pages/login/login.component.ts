@@ -20,11 +20,12 @@ export class LoginComponent {
 	@HostListener('window:resize', ['$event'])
 	onResize(event: any) {
 		this.innerWidth = window.innerWidth;
+		$('body').removeClass('set-bg');
 	}
 
 	constructor() {}
 
 	ngOnInit(): void {
-		this.innerWidth = window.innerWidth;
+		this.onResize(0);
 	}
 }
