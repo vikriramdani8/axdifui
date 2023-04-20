@@ -184,6 +184,14 @@
 	.attendance {
 		height: 100%;
 		position: relative;
+
+		.clock-in {
+			border-top: 6px solid #09a262;
+		}
+
+		.clock-out {
+			border-top: 6px solid #ff2442;
+		}
 	}
 }
 
@@ -232,6 +240,28 @@
 				padding-left: 8px !important;
 			}
 		}
+	}
+
+	#section1 {
+		padding-bottom: 0px !important;
+	}
+
+	#section2 {
+		padding-top: 0px !important;
+
+		#taskDueSoon {
+			margin-top: 0px !important;
+		}
+	}
+
+	.attendance-outline {
+		height: auto;
+		margin-bottom: 10px;
+	}
+
+	.profile {
+		min-height: auto !important;
+		margin-bottom: 10px;
 	}
 }
 

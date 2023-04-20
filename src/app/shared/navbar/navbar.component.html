@@ -11,21 +11,97 @@
 						(click)="setMenu(i)"
 						*ngIf="data['active'] || navShow || !responsive"
 						[ngClass]="{
-								'nav-item-active': data['active'],
-							}"
+							'sublist-active':
+								innerWidth > 992 &&
+								sublistActive &&
+								data['subList'].length != 0,
+							'nav-item-active': data['active'],
+						}"
 					>
 						<span>{{ data["menuName"] }}</span>
 						<span
+							*ngIf="
+								innerWidth > 850 && data['subList'].length != 0
+							"
+							class="pi pi-angle-down"
+						></span>
+						<img
 							*ngIf="innerWidth <= 850 && !navShow"
+							src="assets/images/caret-down.svg"
+							width="15"
+							style="margin-left: 3px"
+						/>
+						<!-- <span
+							
 							class="pi pi-caret-down"
 							style="font-size: 12px; margin-left: 3px"
-						></span>
+						></span> -->
 					</div>
 				</ng-container>
 			</div>
 		</div>
-		<div class="col profile position-relative text-center">
+		<div
+			class="col profile position-relative text-center"
+			(click)="profileNav = !profileNav"
+		>
 			<img src="assets/images/pp1.png" alt="" />
+		</div>
+	</div>
+
+	<div class="profile-nav p-4" *ngIf="profileNav">
+		<div
+			class="profile-nav-top col-12 d-flex justify-content-start align-items-center"
+		>
+			<div class="nav-ava">
+				<img src="assets/images/pp1.png" />
+			</div>
+			<div class="nav-detail">
+				<b>Muhammad iqra Djauhari</b>
+				<p class="text-grey">iqra@elabram.com</p>
+				<div class="capsule-level">Employee</div>
+			</div>
+		</div>
+		<hr class="hr-grey" />
+		<div class="my-profile d-flex align-items-center cursor-pointer">
+			<span class="pi pi-user text-blue"></span>
+			<span class="divider"></span>
+			<span class="font-weight-bold">My Profile</span>
+		</div>
+		<hr class="hr-grey" />
+		<div
+			class="apperance d-flex justify-content-between align-items-center"
+		>
+			<div class="apperance-text">
+				<p class="text-grey mb-1">Apperance</p>
+				<b>Dark Mode</b>
+			</div>
+			<p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+		</div>
+		<hr class="hr-grey" />
+		<div class="my-profile d-flex align-items-center cursor-pointer">
+			<span class="pi pi-sign-out text-blue"></span>
+			<span class="divider"></span>
+			<span (click)="logout()" class="font-weight-bold">Log Out</span>
+		</div>
+	</div>
+
+	<div class="subnav proxima" *ngIf="sublistActive && innerWidth > 992">
+		<div class="container">
+			<div class="sub-nav-title font-weight-bold">
+				<p class="m-0">Submission</p>
+			</div>
+			<div class="row sublist">
+				<ng-container *ngFor="let data of sublist">
+					<div class="sublist-item col-3 p-3">
+						<div class="item-title w-100 d-flex align-items-center">
+							<img [src]="'assets/images/' + data['icon']" />
+							<span class="divider"></span>
+							<b>{{ data["title"] }}</b>
+						</div>
+						<div class="item-desc">{{ data["description"] }}</div>
+					</div>
+				</ng-container>
+			</div>
 		</div>
 	</div>
 </div>

@@ -21,6 +21,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
 	declarations: [
@@ -45,6 +48,9 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 		CheckboxModule,
 		CarouselModule,
 		CalendarModule,
+		InputSwitchModule,
+		ChartModule,
+		TableModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

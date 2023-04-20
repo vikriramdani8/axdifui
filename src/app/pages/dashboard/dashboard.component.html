@@ -1,10 +1,11 @@
 <div
-	class="containter proxima"
+	class="containter-fluid proxima"
 	[ngClass]="{ 'p-3': innerWidth <= 992, 'p-4': innerWidth > 992 }"
 >
-	<div class="col-12 row">
-		<div id="section1" class="col-lg-8 bg-success p-2">
+	<div class="row">
+		<div id="section1" class="col-lg-8 p-2">
 			<div
+				id="summary"
 				class="col-12 overview-description overview-summary p-3 pt-2"
 				[ngClass]="{ 'p-4': innerWidth >= 992 }"
 			>
@@ -48,6 +49,7 @@
 			</div>
 
 			<div
+				id="taskDueSoon"
 				class="col-12 p-3 overview-description overview-task"
 				[ngClass]="{ 'p-4': innerWidth >= 992 }"
 			>
@@ -56,8 +58,10 @@
 				>
 					<h5 class="font-weight-bold m-0">Task Due soon</h5>
 					<span class="see-all-text"
-						>See All <b class="pi pi-caret-right"></b
-					></span>
+						>See All
+						<img src="assets/images/caret-right.svg" width="20" />
+						<!-- <b class="pi pi-caret-right"></b -->
+					</span>
 				</div>
 				<hr class="line m-0" />
 				<div class="col-12 body-detail mt-3">
@@ -110,8 +114,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="section2 p-2" class="col-lg-4 bg-danger p-2">
-			<div class="col-12 profile">
+		<div id="section2" class="col-lg-4 p-2">
+			<div id="profile" class="col-12 profile">
 				<div class="w-100 profile-banner">
 					<div class="profile-ava">
 						<img src="assets/images/pp2.png" alt="" />
@@ -146,21 +150,21 @@
 				</div>
 			</div>
 
-			<div class="col-12 attendance-outline">
+			<div id="attendance" class="col-12 attendance-outline">
 				<div class="w-100 attendance p-3">
 					<div class="w-100">
 						<h5 class="font-weight-bold m-0">Today's Attendance</h5>
 					</div>
 					<hr class="line" />
 					<div class="body-detail row mt-4">
-						<div class="clock col-6">
-							<div class="detail-item w-100">
+						<div class="col-6">
+							<div class="detail-item clock-in w-100">
 								<p>Clock In</p>
 								<b>07:07</b>
 							</div>
 						</div>
 						<div class="clock col-6">
-							<div class="detail-item w-100">
+							<div class="detail-item clock-out w-100">
 								<p>Clock Out</p>
 								<b>18:00</b>
 							</div>

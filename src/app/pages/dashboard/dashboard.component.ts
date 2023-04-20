@@ -90,13 +90,25 @@ export class DashboardComponent implements OnInit {
 			this.inputOutlineStyle['max-width'] = '160px';
 		}
 
-		if (this.innerWidth <= 850) {
-			$('.items').removeClass('col-4');
-			$('.items').addClass('col-6');
-		} else {
-			$('.items').removeClass('col-6');
-			$('.items').addClass('col-4');
-		}
+		setTimeout(() => {
+			if (this.innerWidth <= 850) {
+				$('.items').removeClass('col-4');
+				$('.items').addClass('col-6');
+			} else {
+				$('.items').removeClass('col-6');
+				$('.items').addClass('col-4');
+			}
+
+			if (this.innerWidth < 992) {
+				$('#section1').prepend($('#profile'));
+				$('#section1').append($('#attendance'));
+				$('#section2').append($('#taskDueSoon'));
+			} else {
+				$('#section2').prepend($('#profile'));
+				$('#section2').append($('#attendance'));
+				$('#section1').append($('#taskDueSoon'));
+			}
+		}, 100);
 	}
 
 	ngOnInit(): void {

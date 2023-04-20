@@ -19,30 +19,29 @@ export class RegisterComponent implements OnInit {
 	innerWidth = 0;
 	slideRaw: any = [];
 	slideIndex = 0;
-	onSubmit = true;
+	onSubmit = false;
 
 	@HostListener('window:resize', ['$event'])
 	onResize(event: any) {
-		this.innerWidth = window.innerWidth;
-		if (this.innerWidth < 992) {
-			$('body').addClass('set-bg');
-		} else {
-			$('body').removeClass('set-bg');
-		}
-
 		setTimeout(() => {
+			this.innerWidth = window.innerWidth;
+			if (this.innerWidth < 992) {
+				$('body').addClass('set-bg');
+			} else {
+				$('body').removeClass('set-bg');
+			}
+
 			$('.info-verify').css(
 				'height',
 				$('.verify-body').innerHeight() + 20 + 'px'
 			);
-		}, 100);
+		}, 20);
 	}
 
 	constructor() {}
 
 	ngOnInit(): void {
 		this.innerWidth = window.innerWidth;
-		this.onResize(null);
 		this.slideRaw = [
 			{
 				image: 'register1.svg',
@@ -63,6 +62,8 @@ export class RegisterComponent implements OnInit {
 				active: false,
 			},
 		];
+
+		this.onResize(null);
 	}
 
 	changeSlide(index: any) {

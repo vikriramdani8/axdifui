@@ -1,0 +1,89 @@
+.display-date {
+	text-align: right;
+
+	.date-periode {
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 0.9em;
+	}
+
+	.date-display {
+		min-width: 250px;
+		height: 50px;
+		font-size: 0.9em;
+
+		.display-picky {
+			width: 150px;
+			height: 50px;
+			background-color: antiquewhite;
+			border-radius: 5px 5px;
+
+			.picky1,
+			.picky2 {
+				width: 50%;
+				padding: 12px;
+				padding-left: 3px;
+				padding-right: 3px;
+				text-align: center;
+			}
+
+			.picky1 {
+				background-color: white;
+				border: 1px solid #d4d4d4;
+				border-right: 0px;
+			}
+
+			.picky2 {
+				background-color: #0796e5;
+				border: 1px solid grey;
+				color: white;
+			}
+		}
+	}
+}
+
+.body-chart {
+	background-color: white;
+	padding: 20px;
+	box-shadow: 0px 1px 6px 1px rgba(136, 143, 176, 0.1);
+	font-family: "proxima";
+	height: 100%;
+
+	.vertical-items {
+		border: 1px solid #d4d4d4;
+		border-radius: 7px 7px;
+		padding: 10px;
+
+		p {
+			font-size: 0.9em;
+		}
+	}
+
+	.border-blue {
+		border-left: 7px solid #0796e5;
+	}
+
+	.border-lightblue {
+		border-left: 7px solid #80d2fb;
+	}
+
+	.border-red {
+		border-left: 7px solid #ff2442;
+	}
+}
+
+:host::ng-deep .p-button.p-button-icon-only {
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	background-color: white;
+	color: #0796e5;
+	border: 1px solid #d8d8d8;
+	border-left: 0;
+}
+
+:host::ng-deep .p-inputtext {
+	outline: none !important;
+	border: 1px solid #d8d8d8 !important;
+	box-shadow: none !important;
+	border-right: none !important;
+}
