@@ -8,6 +8,7 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 	ngOnInit(): void {
+		$('body').removeClass('set-bg');
 		$('body').css('background-color', '#F9F9F9');
 	}
 }

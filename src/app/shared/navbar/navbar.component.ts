@@ -159,7 +159,6 @@ export class NavbarComponent implements OnInit {
 
 		this.indexActive = i;
 		if (this.listMenu[this.indexActive]['routerLink']) {
-			console.log(this.listMenu[this.indexActive]['routerLink']);
 			this.router.navigate([
 				'app/' + this.listMenu[this.indexActive]['routerLink'],
 			]);
@@ -169,8 +168,5 @@ export class NavbarComponent implements OnInit {
 	logout() {
 		localStorage.clear();
 		this.router.navigate(['/']);
-		// setTimeout(() => {
-		// 	window.location.reload();
-		// }, 200);
 	}
 }
