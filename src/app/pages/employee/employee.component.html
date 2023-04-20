@@ -3,11 +3,13 @@
 		<div class="col-lg-5">
 			<h4>Employee Summary</h4>
 		</div>
-		<div class="col-lg-7 display-date d-flex justify-content-end">
+		<div
+			class="col-lg-7 display-date d-flex justify-content-end flex-column"
+		>
 			<div
 				class="date-display d-flex justify-content-end align-items-center"
 			>
-				<div class="d-flex align-items-center">
+				<div class="d-flex align-items-center" *ngIf="innerWidth > 560">
 					<p class="m-0">Display Data in</p>
 					<div class="divider-20"></div>
 					<div class="display-picky d-flex align-items-center">
